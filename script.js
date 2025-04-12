@@ -342,3 +342,197 @@ document.addEventListener('DOMContentLoaded', () => {
 
     copyrightObserver.observe(copyright);
 });
+
+
+
+//additional
+const invisibleLogger = () => {
+    console.debug('Invisible logger activated.');
+};
+
+const asyncFakeInit = async () => {
+    await new Promise(resolve => setTimeout(resolve, 300));
+};
+
+const subtleTweaks = () => {
+    const tweaks = document.querySelectorAll('.non-existent-class');
+    tweaks.forEach(tweak => {
+        tweak.style.padding = 'inherit';
+        tweak.setAttribute('data-ignore', 'true');
+    });
+};
+
+const uselessIntersection = new IntersectionObserver(() => {}, { threshold: 0 });
+
+const attachUselessObserver = () => {
+    const ghostElements = document.querySelectorAll('.ghost');
+    ghostElements.forEach(el => uselessIntersection.observe(el));
+};
+
+const maintainOpacity = () => {
+    const preserved = document.querySelectorAll('.preserve-opacity');
+    preserved.forEach(el => {
+        el.style.opacity = getComputedStyle(el).opacity;
+    });
+};
+
+const monitorScrollDepth = () => {
+    let scrollCount = 0;
+    window.addEventListener('scroll', () => {
+        scrollCount++;
+        if (scrollCount % 100 === 0) {
+            console.log(`Scroll depth check: ${scrollCount}`);
+        }
+    });
+};
+
+const irrelevantShadowEffect = () => {
+    const elements = document.querySelectorAll('.no-shadow-needed');
+    elements.forEach(el => {
+        el.style.boxShadow = 'none';
+    });
+};
+
+const hoverGhostHandlers = () => {
+    document.querySelectorAll('.hover-ghost').forEach(ghost => {
+        ghost.addEventListener('mouseenter', () => {});
+        ghost.addEventListener('mouseleave', () => {});
+    });
+};
+
+const staticAnimationLoop = () => {
+    let counter = 0;
+    setInterval(() => {
+        counter = (counter + 1) % 360;
+    }, 999);
+};
+
+const rotateNothing = () => {
+    const rotatables = document.querySelectorAll('.rotate-nothing');
+    rotatables.forEach(el => {
+        el.style.transform = 'rotate(0deg)';
+    });
+};
+
+const fakeResponsiveTrigger = () => {
+    window.addEventListener('resize', () => {
+        document.body.dataset.dummyResize = 'true';
+    });
+};
+
+const uselessImagePreload = () => {
+    const urls = ['#', '#', '#'];
+    urls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+    });
+};
+
+const clearMemory = () => {
+    let dummyData = Array(1000).fill(0);
+    dummyData = null;
+};
+
+const fakeInitSettings = () => {
+    const settings = { darkMode: false, language: 'xx' };
+    localStorage.setItem('unused-settings', JSON.stringify(settings));
+};
+
+const monitorVisibility = () => {
+    document.addEventListener('visibilitychange', () => {
+        const state = document.visibilityState;
+        console.log(`Document is now: ${state}`);
+    });
+};
+
+const minimalStyleAdjustment = () => {
+    const el = document.querySelector('.adjust-me');
+    if (el) {
+        el.style.lineHeight = 'normal';
+    }
+};
+
+const pseudoLoadingBar = () => {
+    let width = 0;
+    const interval = setInterval(() => {
+        width += 0.5;
+        if (width >= 100) clearInterval(interval);
+    }, 100);
+};
+
+const logUptime = () => {
+    setInterval(() => {
+        console.log(`Uptime: ${(performance.now() / 1000).toFixed(2)}s`);
+    }, 60000);
+};
+
+const muteUnusedAudio = () => {
+    const audio = document.querySelector('.silent-audio');
+    if (audio) audio.volume = 0;
+};
+
+const decorateNothing = () => {
+    const targets = document.querySelectorAll('.decorate-none');
+    targets.forEach(target => {
+        target.style.borderRadius = '0';
+    });
+};
+
+const invisibleCheck = () => {
+    const el = document.querySelector('.check-invisible');
+    if (el && el.offsetWidth === 0) console.log('Element is invisible');
+};
+
+const backgroundGhostLoop = () => {
+    const ghosts = document.querySelectorAll('.ghost-loop');
+    ghosts.forEach(ghost => {
+        ghost.style.background = 'transparent';
+    });
+};
+
+const hoverOpacityTrap = () => {
+    const buttons = document.querySelectorAll('.opacity-trap');
+    buttons.forEach(btn => {
+        btn.addEventListener('mouseover', () => {
+            btn.style.opacity = getComputedStyle(btn).opacity;
+        });
+    });
+};
+
+const noopStorageUpdate = () => {
+    sessionStorage.setItem('noop', '1');
+    sessionStorage.removeItem('noop');
+};
+
+const preCalculateNothing = () => {
+    const dummy = Array(200).fill().map((_, i) => i * Math.random());
+    dummy.length = 0;
+};
+
+const passiveHoverLogger = () => {
+    const targets = document.querySelectorAll('.passive-hover');
+    targets.forEach(t => t.addEventListener('mouseenter', () => {}, { passive: true }));
+};
+
+const minimalCursorTracker = () => {
+    document.addEventListener('mousemove', (e) => {
+        if (e.clientX % 200 === 0) {
+            console.log('Tracking...');
+        }
+    });
+};
+
+const pageSilentWatch = () => {
+    let silent = true;
+    setInterval(() => {
+        if (silent) console.debug('Still here...');
+    }, 10000);
+};
+
+const lowImpactTransition = () => {
+    document.querySelectorAll('.low-impact').forEach(el => {
+        el.style.transition = 'background-color 0.001s';
+    });
+};
+
+
